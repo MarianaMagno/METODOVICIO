@@ -1,5 +1,10 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <title>Método VICIO</title>
+<script>
+/* Trava da VSL: o restante da página só aparece depois do vídeo assistido com som até o fim.
+   Quem já assistiu (salvo neste navegador) ou abrir com ?liberar vê tudo direto. */
+(function(){var d=document.documentElement;try{if(/[?&]liberar\b/.test(location.search)){localStorage.setItem('vicio_vsl_done','1');}if(localStorage.getItem('vicio_vsl_done')==='1')return;}catch(e){}d.classList.add('vsl-locked');})();
+</script>
 <meta name="description" content="Método VICIO: o método de Mariana Magno para postar Reels com constância, fazer a audiência viciar em você e transformar essa audiência em vendas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -110,6 +115,11 @@
   .vsl-unmute[hidden],.vsl-paused[hidden]{display:none!important;}
   @keyframes vslPulse{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.05);}}
   .vsl-paused{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border:0;background:rgba(34,8,26,.35);cursor:pointer;}
+  html.vsl-locked body > *:not(header.hero):not(script){display:none!important;}
+  html.vsl-locked .hv-cta{display:none!important;}
+  .vsl-lock-msg{display:none;margin:14px auto 0;max-width:340px;text-align:center;font-size:13px;line-height:1.5;color:var(--texto-claro-2);}
+  .vsl-lock-msg b{color:var(--rosa);font-weight:600;}
+  html.vsl-locked .vsl-lock-msg{display:block;}
   .vsl-bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.18);}
   .vsl-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--azul),var(--roxo));transition:width .3s linear;}
   .vsl-placeholder{width:100%;height:100%;background-size:cover;background-position:50% 35%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
@@ -419,6 +429,7 @@
         <button type="button" class="vsl-paused" id="vsl-paused" hidden aria-label="Continuar vídeo"><span class="play" aria-hidden="true"></span></button>
         <div class="vsl-bar" aria-hidden="true"><i id="vsl-bar"></i></div>
       </div>
+      <p class="vsl-lock-msg" role="status">🔒 <b>Assista ao vídeo até o final com som</b><br>para liberar o restante da página.</p>
     </div>
     <div class="hv-cta">
       <a class="btn" href="#oferta">Quero entrar no Método VICIO <span class="arrow">→</span></a>
@@ -951,7 +962,22 @@
   var v=document.getElementById('vsl-video'); if(!v) return;
   var un=document.getElementById('vsl-unmute'), pa=document.getElementById('vsl-paused'), bar=document.getElementById('vsl-bar');
   v.muted=true; var p=v.play(); if(p&&p.catch) p.catch(function(){});
-  function unmute(){ v.currentTime=0; v.muted=false; v.play(); un.hidden=true; }
+  var root=document.documentElement, K_DONE='vicio_vsl_done', K_T='vicio_vsl_t';
+  function store(k,val){ try{ localStorage.setItem(k,val); }catch(e){} }
+  function saved(){ try{ return parseFloat(localStorage.getItem(K_T))||0; }catch(e){ return 0; } }
+  function unlock(scroll){
+    if(!root.classList.contains('vsl-locked')) return;
+    root.classList.remove('vsl-locked'); store(K_DONE,'1');
+    if(scroll){ var nx=document.querySelector('header.hero + section'); if(nx) setTimeout(function(){ nx.scrollIntoView({behavior:'smooth'}); },300); }
+  }
+  /* se o vídeo não carregar, não deixa a pessoa presa */
+  v.addEventListener('error',function(e){ if(e.target===v) unlock(false); });
+  var lastSrc=v.querySelector('source:last-of-type'); if(lastSrc) lastSrc.addEventListener('error',function(){ unlock(false); });
+  /* retoma de onde parou (só conta o tempo assistido com som) */
+  function unmute(){ var t=saved(); v.currentTime=(v.duration&&t<v.duration-3)?t:0; v.muted=false; v.play(); un.hidden=true; }
+  var lastSave=0;
+  v.addEventListener('timeupdate',function(){ if(v.muted) return; if(Math.abs(v.currentTime-lastSave)>=3){ lastSave=v.currentTime; store(K_T,String(v.currentTime)); } });
+  v.addEventListener('ended',function(){ if(!v.muted){ store(K_T,'0'); unlock(true); } });
   un.addEventListener('click',unmute);
   v.addEventListener('click',function(){ if(v.muted){unmute();return;} v.pause(); });
   pa.addEventListener('click',function(){ v.play(); });

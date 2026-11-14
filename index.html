@@ -114,7 +114,16 @@
   .vsl-unmute span:last-child{font-size:13px;opacity:.9;}
   .vsl-unmute[hidden],.vsl-paused[hidden]{display:none!important;}
   @keyframes vslPulse{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.05);}}
-  .vsl-paused{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border:0;background:rgba(34,8,26,.35);cursor:pointer;}
+  .vsl-paused{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;border:0;background:rgba(34,8,26,.72);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);cursor:pointer;font-family:var(--body);}
+  .vsl-alert{display:flex;flex-direction:column;align-items:center;gap:8px;max-width:260px;text-align:center;color:var(--creme);}
+  .vsl-alert-ico{font-size:38px;line-height:1;}
+  .vsl-alert b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:28px;line-height:1.05;color:var(--rosa);}
+  .vsl-alert-txt{font-size:14px;line-height:1.45;color:var(--texto-claro);}
+  .vsl-alert-btn{margin-top:8px;padding:14px 22px;border-radius:999px;background:linear-gradient(135deg,var(--azul),var(--roxo));color:#fff;font-weight:700;font-size:14px;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 12px 30px rgba(124,58,237,.45);animation:vslNudge 1.6s ease-in-out infinite;}
+  @keyframes vslNudge{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+  .vsl-lock-msg.shake{animation:vslShake .5s ease;}
+  .vsl-lock-msg.shake b{color:#fff;}
+  @keyframes vslShake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-8px);}40%,80%{transform:translateX(8px);}}
   html.vsl-locked body > *:not(header.hero):not(script){display:none!important;}
   html.vsl-locked .hv-cta{display:none!important;}
   .vsl-lock-msg{display:none;margin:14px auto 0;max-width:340px;text-align:center;font-size:13px;line-height:1.5;color:var(--texto-claro-2);}
@@ -426,10 +435,10 @@
       <div class="vsl" id="vsl">
         <video id="vsl-video" poster="images/vsl-poster.jpg" autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" aria-label="Vídeo: Método VICIO"><source src="video/vsl-hevc.mp4" type='video/mp4; codecs="hvc1"'><source src="video/vsl-h264.mp4" type="video/mp4"></video>
         <button type="button" class="vsl-unmute" id="vsl-unmute"><span class="vsl-unmute-ico" aria-hidden="true">🔊</span><b>Seu vídeo já começou</b><span>Toque para ouvir</span></button>
-        <button type="button" class="vsl-paused" id="vsl-paused" hidden aria-label="Continuar vídeo"><span class="play" aria-hidden="true"></span></button>
+        <button type="button" class="vsl-paused" id="vsl-paused" hidden aria-label="Continuar vídeo"><span class="vsl-alert"><span class="vsl-alert-ico" aria-hidden="true">⚠️</span><b>Não pare agora!</b><span class="vsl-alert-txt">O conteúdo completo é liberado no final do vídeo.</span><span class="vsl-alert-btn">▶ Continuar assistindo</span></span></button>
         <div class="vsl-bar" aria-hidden="true"><i id="vsl-bar"></i></div>
       </div>
-      <p class="vsl-lock-msg" role="status">🔒 <b>Assista ao vídeo até o final com som</b><br>para liberar o restante da página.</p>
+      <p class="vsl-lock-msg" id="vsl-lock-msg" role="status">🔒 <b>Assista ao vídeo até o final com som</b><br><span id="vsl-left">para liberar o restante da página.</span></p>
     </div>
     <div class="hv-cta">
       <a class="btn" href="#oferta">Quero entrar no Método VICIO <span class="arrow">→</span></a>
@@ -978,10 +987,35 @@
   var lastSave=0;
   v.addEventListener('timeupdate',function(){ if(v.muted) return; if(Math.abs(v.currentTime-lastSave)>=3){ lastSave=v.currentTime; store(K_T,String(v.currentTime)); } });
   v.addEventListener('ended',function(){ if(!v.muted){ store(K_T,'0'); unlock(true); } });
+  /* contagem regressiva embaixo do vídeo */
+  var left=document.getElementById('vsl-left'), msg=document.getElementById('vsl-lock-msg');
+  function fmt(sec){ sec=Math.max(0,Math.ceil(sec)); var m=Math.floor(sec/60), x=sec%60; return m+':'+(x<10?'0':'')+x; }
+  v.addEventListener('timeupdate',function(){ if(v.muted||!v.duration||!left) return; left.textContent='Faltam '+fmt(v.duration-v.currentTime)+' para liberar o restante da página.'; });
+  /* aba em segundo plano: título chama a pessoa de volta */
+  var title0=document.title;
+  document.addEventListener('visibilitychange',function(){
+    if(!root.classList.contains('vsl-locked')) { document.title=title0; return; }
+    document.title = document.hidden ? '⏸ Volte, seu vídeo está pausado!' : title0;
+    if(document.hidden && !v.muted && !v.paused) v.pause();
+  });
+  /* tentou rolar para baixo com a página travada: chacoalha o aviso */
+  var lastNudge=0;
+  function nudge(){ if(!root.classList.contains('vsl-locked')||!msg) return; var now=Date.now(); if(now-lastNudge<1200) return; lastNudge=now; msg.classList.remove('shake'); void msg.offsetWidth; msg.classList.add('shake'); }
+  function atBottom(){ return window.innerHeight+window.scrollY >= document.documentElement.scrollHeight-4; }
+  window.addEventListener('wheel',function(e){ if(e.deltaY>0&&atBottom()) nudge(); },{passive:true});
+  var ty=0; window.addEventListener('touchstart',function(e){ ty=e.touches[0].clientY; },{passive:true});
+  window.addEventListener('touchmove',function(e){ if(ty-e.touches[0].clientY>30&&atBottom()) nudge(); },{passive:true});
   un.addEventListener('click',unmute);
   v.addEventListener('click',function(){ if(v.muted){unmute();return;} v.pause(); });
   pa.addEventListener('click',function(){ v.play(); });
-  v.addEventListener('pause',function(){ if(!v.muted && !v.ended) pa.hidden=false; });
+  v.addEventListener('pause',function(){
+    if(v.muted || v.ended) return;
+    var locked=document.documentElement.classList.contains('vsl-locked');
+    pa.querySelector('b').textContent = locked ? 'Não pare agora!' : 'Vídeo pausado';
+    pa.querySelector('.vsl-alert-ico').textContent = locked ? '⚠️' : '⏸';
+    pa.querySelector('.vsl-alert-txt').textContent = locked ? 'O conteúdo completo é liberado no final do vídeo.' : 'Toque para continuar de onde parou.';
+    pa.hidden=false;
+  });
   v.addEventListener('play',function(){ pa.hidden=true; });
   v.addEventListener('ended',function(){ if(v.muted){ v.currentTime=0; v.play(); } });
   /* barra "inteligente": anda mais rápido no começo e devagar no fim */

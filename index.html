@@ -1,0 +1,900 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Método VICIO</title>
+<meta name="description" content="Método VICIO: o método de Mariana Magno para postar Reels com constância, fazer a audiência viciar em você e transformar essa audiência em vendas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* Layout: blocos alternando vinho profundo (impacto) e creme (leitura), títulos Anton em caixa alta, CTA em gradiente azul-roxo. Tema único por escolha da marca. */
+  :root{
+    color-scheme:light;
+    --vinho:#3D0E29;
+    --vinho-escuro:#22081A;
+    --creme:#F5EFE6;
+    --rosa:#E8B4C8;
+    --branco:#FFFFFF;
+    --azul:#1C7ED6;
+    --roxo:#7C3AED;
+    --muted:#8A7A82;
+    --texto-claro:#E9DEE3;
+    --texto-claro-2:#C9A9B6;
+    --linha-escura:rgba(255,255,255,.12);
+    --linha-clara:#EADFE1;
+    --sombra:0 14px 34px rgba(61,14,41,.12);
+    --display:'Anton',Impact,'Arial Narrow Bold',sans-serif;
+    --body:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:var(--body);background:var(--creme);color:var(--vinho-escuro);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px;}
+  h1,h2,h3{margin:0;font-family:var(--display);text-transform:uppercase;font-weight:400;letter-spacing:.3px;line-height:1.02;text-wrap:balance;}
+  p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  img{display:block;max-width:100%;}
+  em{font-style:normal;color:var(--rosa);}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,6vw,64px);}
+  section{padding-block:clamp(64px,10vw,110px);}
+  .dark{background:var(--vinho);color:var(--creme);}
+  .deep{background:var(--vinho-escuro);color:var(--creme);}
+  .light{background:var(--creme);color:var(--vinho-escuro);}
+  .white{background:var(--branco);color:var(--vinho-escuro);}
+  .light em,.white em{color:var(--vinho);background:linear-gradient(transparent 62%,var(--rosa) 62%);padding-inline:2px;}
+  html,body{overflow-x:clip;}
+  .grid-bg{position:relative;}
+  .grid-bg::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(var(--linha-escura) 1px,transparent 1px),linear-gradient(90deg,var(--linha-escura) 1px,transparent 1px);
+    background-size:28px 28px;opacity:.35;
+    -webkit-mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent);mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent);}
+  .grid-bg > *{position:relative;}
+
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--rosa);}
+  .light .eyebrow,.white .eyebrow{color:var(--vinho);}
+  .label{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+  .label .num{font-family:var(--display);background:var(--vinho);color:var(--creme);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex:none;}
+  .dark .label .num,.deep .label .num{background:var(--rosa);color:var(--vinho-escuro);}
+  .label .txt{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .dark .label .txt,.deep .label .txt{color:var(--texto-claro-2);}
+  .h2{font-size:clamp(34px,5.2vw,64px);}
+  .lead{font-size:clamp(16px,1.6vw,18px);max-width:62ch;}
+  .dark .lead,.deep .lead{color:var(--texto-claro);}
+  .stack{display:flex;flex-direction:column;gap:24px;}
+  .center{text-align:center;align-items:center;}
+  .center .lead{margin-inline:auto;}
+
+  /* placeholder: trechos que a Mariana precisa preencher */
+  .ph{background:rgba(232,180,200,.28);border:1px dashed var(--rosa);border-radius:6px;padding:0 6px;white-space:normal;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-family:var(--body);font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:15px;color:var(--branco);
+    background:linear-gradient(135deg,var(--azul),var(--roxo));padding:20px 34px;border-radius:999px;box-shadow:0 12px 30px rgba(124,58,237,.35);transition:transform .2s ease,box-shadow .2s ease;text-align:center;max-width:100%;}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(124,58,237,.45);}
+  .btn:focus-visible{outline:3px solid var(--rosa);outline-offset:3px;}
+  .btn .arrow{font-size:18px;line-height:1;}
+  .btn-note{font-size:13px;color:var(--muted);}
+  .dark .btn-note,.deep .btn-note{color:var(--texto-claro-2);}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;color:var(--creme);
+    background:url('images/img-01.png') center/cover,linear-gradient(180deg,var(--vinho),var(--vinho-escuro));
+    padding-block:clamp(48px,8vw,96px) clamp(56px,8vw,100px);}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(28px,5vw,64px);align-items:center;}
+  .hero-copy{display:flex;flex-direction:column;gap:26px;min-width:0;}
+  .brand{font-family:var(--display);font-size:clamp(34px,4.4vw,52px);line-height:1;letter-spacing:3px;color:var(--creme);}
+  .brand span{color:var(--rosa);}
+  .hero h1{font-size:clamp(40px,6vw,80px);line-height:.98;}
+  .hero p.lead{color:var(--texto-claro);}
+  .hero-photo{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35);aspect-ratio:4/5;max-width:100%;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;}
+  .hero-photo .tag{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(34,8,26,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--linha-escura);border-radius:14px;padding:12px 14px;font-size:13px;color:var(--creme);}
+  .hero-photo .tag b{display:block;font-size:14px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-size:12px;font-weight:600;letter-spacing:.5px;border:1px solid var(--linha-escura);background:rgba(255,255,255,.06);color:var(--texto-claro);padding:7px 12px;border-radius:999px;}
+
+  .hero .hero-v{display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;}
+  .hv-text{display:flex;flex-direction:column;align-items:center;gap:20px;max-width:900px;min-width:0;}
+  .hv-text .lead{max-width:60ch;}
+  .hv-video{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;min-width:0;}
+  .hv-cta{display:flex;justify-content:center;width:100%;}
+  .hero-v h1{font-size:clamp(24px,2.8vw,38px);line-height:1.05;max-width:30ch;}
+  .hero .hero-v h1.hero-lead{font-family:var(--body,'Poppins',sans-serif);text-transform:none;font-weight:700;font-size:clamp(19px,2vw,26px);line-height:1.5;letter-spacing:.2px;max-width:38ch;display:flex;flex-direction:column;gap:18px;color:var(--creme);}
+  .hero-lead em{font-style:normal;color:var(--rosa);}
+  .vsl-sub{font-size:clamp(15px,1.4vw,17px);line-height:1.6;color:rgba(245,239,230,.82);text-align:center;max-width:46ch;margin:0 auto 14px;}
+  .vsl-sub b{color:var(--creme);font-weight:600;}
+  .vsl-hint{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--rosa);text-align:center;}
+  .vsl{width:100%;max-width:380px;aspect-ratio:9/16;border-radius:24px;overflow:hidden;border:1px solid var(--linha-escura);box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 0 8px rgba(232,180,200,.08);background:var(--vinho-escuro);}
+  .vsl iframe,.vsl video{width:100%;height:100%;border:0;display:block;}
+  .vsl-placeholder{width:100%;height:100%;background-size:cover;background-position:50% 35%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
+  .play{width:clamp(64px,9vw,92px);aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,var(--azul),var(--roxo));box-shadow:0 0 0 10px rgba(255,255,255,.12);position:relative;}
+  .play::after{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent var(--branco);}
+  .vsl-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--texto-claro);background:rgba(34,8,26,.6);padding:6px 12px;border-radius:999px;}
+
+  /* DOR */
+  .stackwords{display:flex;flex-direction:column;gap:2px;font-family:var(--display);text-transform:uppercase;font-size:clamp(30px,5vw,58px);line-height:1.02;}
+  .stackwords span:nth-child(odd){color:var(--vinho);}
+  .stackwords span:last-child{color:var(--branco);background:var(--vinho);align-self:flex-start;padding:4px 14px;border-radius:8px;margin-top:10px;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .listcard{background:var(--branco);border-radius:18px;padding:30px 28px;box-shadow:var(--sombra);min-width:0;}
+  .listcard h3{font-size:22px;margin-bottom:18px;color:var(--vinho);}
+  .checks{display:flex;flex-direction:column;gap:14px;}
+  .checks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;}
+  .checks li::before{content:"";width:22px;height:22px;border-radius:50%;margin-top:2px;
+    background:var(--rosa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233D0E29' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 8'/%3E%3C/svg%3E") center/14px no-repeat;}
+  .checks.x li::before{background:var(--vinho) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E8B4C8' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/12px no-repeat;}
+
+  /* HISTÓRIA */
+  .story{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center;}
+  .frame{justify-self:center;width:min(100%,400px);padding:16px;border-radius:6px;transform:rotate(3deg);
+    background:linear-gradient(135deg,#B8893A,#F3DFA2 22%,#A97C2F 45%,#F6E7B8 65%,#8E6A26 85%,#D9B867);
+    box-shadow:0 24px 50px rgba(0,0,0,.45),inset 0 0 0 3px rgba(80,55,15,.45),inset 0 0 0 9px rgba(255,240,200,.35);}
+  .frame img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;display:block;box-shadow:inset 0 0 0 2px rgba(0,0,0,.3);}
+  .collage{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:820px;margin-inline:auto;width:100%;}
+  .collage img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%;border-radius:12px;box-shadow:0 14px 30px rgba(0,0,0,.35);}
+  .story-turn{display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;max-width:760px;margin-inline:auto;}
+  .story-turn p{color:var(--texto-claro);font-size:clamp(16px,1.6vw,18px);}
+  .story-text{display:flex;flex-direction:column;gap:18px;min-width:0;}
+  .story-text p{color:var(--texto-claro);}
+  .callouts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  .story-sub{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(28px,3.6vw,44px);color:var(--rosa);margin-top:8px;}
+  .callout{border:1px solid var(--linha-escura);background:rgba(255,255,255,.05);border-radius:16px;padding:18px;}
+  .callout b{display:block;font-family:var(--display);font-size:28px;font-weight:400;color:var(--rosa);line-height:1.1;}
+  .callout span{font-size:13px;color:var(--texto-claro-2);}
+
+  /* DESCOBERTA + CICLO */
+  .discovery{display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;}
+  .discovery .small{font-family:var(--display);font-size:clamp(20px,2.4vw,26px);color:var(--rosa);text-transform:uppercase;letter-spacing:1px;}
+  .discovery .big{font-size:clamp(36px,6vw,76px);}
+  .cycle{margin-top:48px;overflow-x:auto;}
+  .cycle-grid{display:grid;grid-template-columns:140px repeat(4,minmax(150px,1fr));gap:10px;min-width:760px;}
+  .cycle-head{font-family:var(--display);text-transform:uppercase;font-size:20px;color:var(--creme);padding:14px 16px;border-radius:12px;background:linear-gradient(135deg,var(--azul),var(--roxo));text-align:center;}
+  .cycle-head.blank{background:none;}
+  .cycle-row{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--rosa);display:flex;align-items:center;padding-inline:4px;}
+  .cycle-cell{background:rgba(255,255,255,.06);border:1px solid var(--linha-escura);border-radius:12px;padding:16px;font-size:14px;color:var(--texto-claro);}
+  .quote-line{margin-top:44px;font-size:clamp(17px,1.8vw,20px);color:var(--texto-claro);max-width:60ch;margin-inline:auto;text-align:center;font-style:italic;}
+
+  /* RESULTADOS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .stat{background:var(--vinho);color:var(--creme);border-radius:18px;padding:30px 24px;}
+  .stat b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(34px,4vw,50px);line-height:1;color:var(--rosa);}
+  .stat span{display:block;margin-top:10px;font-size:14px;color:var(--texto-claro);}
+  .creds{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .cred{background:var(--branco);border-radius:16px;padding:20px 22px;box-shadow:var(--sombra);display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;}
+  .cred::before{content:"";width:22px;height:22px;border-radius:50%;margin-top:2px;background:var(--vinho) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E8B4C8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 8'/%3E%3C/svg%3E") center/14px no-repeat;}
+  .prints{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .print{aspect-ratio:9/16;max-height:440px;border-radius:22px;border:2px dashed var(--rosa);background:repeating-linear-gradient(135deg,rgba(232,180,200,.12) 0 12px,transparent 12px 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-size:13px;color:var(--muted);max-width:100%;}
+
+  .fb-track{display:flex;align-items:flex-start;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-block:8px 16px;scrollbar-width:none;}
+  .fb-track::-webkit-scrollbar{display:none;}
+  .fb{flex:0 0 clamp(240px,28vw,320px);margin:0;scroll-snap-align:start;border-radius:20px;overflow:hidden;box-shadow:var(--sombra);background:var(--vinho-escuro,#22081A);aspect-ratio:9/16;}
+  .fb img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .fb-ph{aspect-ratio:9/16;max-height:560px;display:flex;align-items:center;justify-content:center;border:2px dashed var(--rosa);background:repeating-linear-gradient(135deg,rgba(232,180,200,.12) 0 12px,transparent 12px 24px);color:var(--muted);font-size:13px;box-shadow:none;}
+  /* VICIO */
+  .letters{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  .letter{background:var(--branco);border-radius:18px;padding:26px 20px 22px;box-shadow:var(--sombra);display:flex;flex-direction:column;gap:10px;min-width:0;}
+  .letter .l{font-family:var(--display);font-size:72px;line-height:.9;background:linear-gradient(135deg,var(--azul),var(--roxo));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .letter h3{font-size:22px;color:var(--vinho);}
+  .letter p{font-size:14px;color:#5a4450;}
+  .letter .mods{margin-top:auto;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--muted);padding-top:12px;border-top:1px solid var(--linha-clara);}
+  .tagline{margin-top:36px;text-align:center;font-family:var(--display);text-transform:uppercase;font-size:clamp(22px,3vw,34px);color:var(--vinho);line-height:1.15;text-wrap:balance;}
+
+  /* OBJEÇÕES */
+  .objections{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .obj{border-radius:18px;padding:28px 26px;background:rgba(255,255,255,.05);border:1px solid var(--linha-escura);display:flex;flex-direction:column;gap:12px;min-width:0;}
+  .obj q{font-family:var(--display);text-transform:uppercase;font-size:22px;line-height:1.1;color:var(--rosa);quotes:"“" "”";}
+  .obj p{color:var(--texto-claro);font-size:15px;}
+  .obj p b{color:var(--creme);}
+  .obj.wide{grid-column:1 / -1;}
+
+  /* MÓDULOS (carrossel) */
+  .mod-sec{overflow:hidden;}
+  .mod-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;}
+  .mc-nav{display:flex;gap:8px;}
+  .mc-btn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--vinho);background:transparent;color:var(--vinho);font-size:20px;cursor:pointer;font-family:var(--body);transition:background .2s,color .2s;}
+  .mc-btn:hover{background:var(--vinho);color:var(--creme);}
+  .mc-btn:focus-visible,.mc-face:focus-visible,.mc-track:focus-visible{outline:3px solid var(--roxo);outline-offset:3px;}
+  .mc-track{--gut:max(clamp(16px,6vw,64px),calc((100% - var(--wrap))/2 + clamp(16px,6vw,64px)));display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:32px var(--gut) 12px;scroll-padding-inline:var(--gut);scrollbar-width:none;}
+  .mc-track::-webkit-scrollbar{display:none;}
+  .mcard{flex:0 0 clamp(240px,26vw,300px);margin:0;scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;}
+  .mcard figcaption{text-align:center;font-style:italic;color:var(--vinho);font-size:15px;}
+  .mc-face{all:unset;box-sizing:border-box;position:relative;display:block;width:100%;aspect-ratio:9/14;border-radius:16px;overflow:hidden;cursor:pointer;color:var(--creme);background-color:var(--vinho);background-size:cover;box-shadow:0 18px 40px rgba(61,14,41,.22);}
+  .mc-face::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,8,26,.15) 0%,rgba(34,8,26,.35) 45%,rgba(34,8,26,.92) 100%);}
+  .bg-p1{background-image:var(--img1);}
+  .bg-p2{background-image:var(--img2);}
+  .bg-p3{background-image:var(--img3);}
+  .bg-p1,.bg-p2,.bg-p3{filter:saturate(.85);}
+  .bg-grad{background-image:radial-gradient(90% 70% at 80% 10%,rgba(232,180,200,.35),transparent 60%),linear-gradient(160deg,var(--azul),var(--roxo) 55%,var(--vinho));}
+  .bg-vinho{background-image:linear-gradient(var(--linha-escura) 1px,transparent 1px),linear-gradient(90deg,var(--linha-escura) 1px,transparent 1px),radial-gradient(100% 80% at 80% 0%,rgba(124,58,237,.45),transparent 60%);background-size:22px 22px,22px 22px,100% 100%;}
+  .mc-vert{position:absolute;right:-6px;top:0;bottom:0;writing-mode:vertical-rl;font-family:var(--display);text-transform:uppercase;font-size:clamp(64px,7vw,92px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(245,239,230,.55);letter-spacing:2px;white-space:nowrap;text-align:center;}
+  .mc-letter{position:absolute;left:16px;top:16px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:rgba(34,8,26,.55);border:1px solid var(--linha-escura);padding:5px 10px;border-radius:999px;}
+  .mc-title{position:absolute;left:16px;right:16px;bottom:20px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+  .mc-title b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(26px,2.6vw,32px);line-height:1;color:var(--vinho-escuro);background:var(--rosa);padding:6px 12px 4px;transform:rotate(-2deg);box-shadow:0 6px 16px rgba(0,0,0,.25);}
+  .mc-title small{font-size:15px;font-weight:600;color:var(--creme);padding-left:4px;}
+  .mc-lessons{position:absolute;inset:0;background:rgba(34,8,26,.94);padding:22px 20px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(12px);transition:opacity .25s,transform .25s;pointer-events:none;}
+  .mc-lessons .mc-lh{font-family:var(--display);text-transform:uppercase;font-size:22px;color:var(--rosa);}
+  .mc-lessons ul{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--texto-claro);}
+  .mc-lessons li{padding-left:14px;position:relative;}
+  .mc-lessons li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--rosa);}
+  .mc-face[aria-expanded="true"] .mc-lessons{opacity:1;transform:none;}
+  @media (hover:hover){.mc-face:hover .mc-lessons{opacity:1;transform:none;}}
+  .mod-sec .facts{margin-top:32px;}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+  .fact{background:var(--vinho);color:var(--creme);border-radius:999px;padding:10px 18px;font-size:14px;font-weight:500;}
+  .fact b{color:var(--rosa);}
+
+  /* FORMATOS */
+  .formats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .format{border-radius:16px;padding:22px 20px;background:rgba(255,255,255,.05);border:1px solid var(--linha-escura);display:flex;flex-direction:column;gap:8px;min-width:0;}
+  .format .n{font-size:11px;letter-spacing:2px;color:var(--rosa);font-weight:600;}
+  .format h3{font-size:24px;}
+  .format p{font-size:14px;color:var(--texto-claro);}
+  .format.cta-card{background:linear-gradient(135deg,var(--azul),var(--roxo));border:none;justify-content:center;}
+  .format.cta-card p{color:var(--branco);font-size:15px;}
+
+  /* FERRAMENTAS */
+  .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .tool-wide{grid-column:1/-1;}
+  .bonuses.five{grid-template-columns:repeat(3,1fr);}
+  .bonuses.five .b-feat{grid-column:span 2;}
+  @media (max-width:960px){.bonuses.five .b-feat{grid-column:1/-1;}}
+  .tool{background:var(--branco);border-radius:18px;padding:24px;box-shadow:var(--sombra);display:flex;flex-direction:column;gap:10px;min-width:0;}
+  .tool .kind{align-self:flex-start;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--vinho);background:var(--rosa);padding:4px 10px;border-radius:999px;}
+  .tool h3{font-size:22px;color:var(--vinho);}
+  .tool p{font-size:14px;color:#5a4450;}
+
+  /* PARA QUEM */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .fit .listcard.no{background:var(--vinho);color:var(--creme);}
+  .fit .listcard.no h3{color:var(--rosa);}
+
+  /* COMPARATIVO */
+  .compare{display:flex;flex-direction:column;gap:8px;}
+  .cmp-head,.cmp-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .cmp-head span{font-family:var(--display);text-transform:uppercase;font-size:clamp(16px,2vw,22px);padding:14px 18px;border-radius:12px;}
+  .cmp-head span:first-child{background:var(--branco);color:var(--muted);border:1px solid var(--linha-clara);}
+  .cmp-head span:last-child{background:linear-gradient(135deg,var(--azul),var(--roxo));color:var(--branco);}
+  .cmp-row span{padding:14px 18px;border-radius:12px;font-size:15px;display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;min-width:0;}
+  .cmp-row span:first-child{background:var(--branco);color:var(--muted);border:1px solid var(--linha-clara);}
+  .cmp-row span:last-child{background:var(--vinho);color:var(--creme);}
+  .cmp-row span::before{content:"";width:20px;height:20px;border-radius:50%;margin-top:2px;}
+  .cmp-row span:first-child::before{background:var(--linha-clara) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A7A82' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/11px no-repeat;}
+  .cmp-row span:last-child::before{background:var(--rosa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233D0E29' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 8'/%3E%3C/svg%3E") center/13px no-repeat;}
+  @media (max-width:560px){.cmp-head span,.cmp-row span{padding:12px;font-size:14px;}.cmp-row span{grid-template-columns:1fr;}.cmp-row span::before{display:none;}}
+
+  /* PASSOS */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s;}
+  .step{position:relative;border-radius:18px;padding:26px 22px;background:rgba(255,255,255,.05);border:1px solid var(--linha-escura);display:flex;flex-direction:column;gap:10px;min-width:0;}
+  .step-n{align-self:flex-start;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--branco);background:linear-gradient(135deg,var(--azul),var(--roxo));padding:6px 12px;border-radius:999px;}
+  .step h3{font-size:22px;}
+  .step p{font-size:14px;color:var(--texto-claro);}
+  /* BÔNUS */
+  .bonuses{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .bonus{background:var(--creme);color:var(--vinho-escuro);border-radius:18px;padding:24px 20px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:0 20px 40px rgba(0,0,0,.25);}
+  .b-tag{align-self:flex-start;font-family:var(--display);text-transform:uppercase;font-size:16px;background:var(--vinho);color:var(--rosa);padding:4px 12px;border-radius:8px;transform:rotate(-2deg);}
+  .bonus h3{font-size:22px;color:var(--vinho);}
+  .bonus p{font-size:14px;color:#5a4450;}
+  .b-val{margin-top:auto;padding-top:10px;border-top:1px solid var(--linha-clara);font-size:13px;color:var(--muted);}
+  .bonuses.two{grid-template-columns:repeat(2,1fr);max-width:820px;margin-inline:auto;width:100%;}
+  @media (max-width:960px){.steps,.bonuses{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.steps,.bonuses{grid-template-columns:1fr;}}
+
+  /* OFERTA */
+  .offer{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch;}
+  .offer-list{background:rgba(255,255,255,.05);border:1px solid var(--linha-escura);border-radius:22px;padding:32px 28px;min-width:0;}
+  .offer-list h3{font-size:24px;margin-bottom:18px;}
+  .offer-list .checks li{color:var(--texto-claro);}
+  .stack-list{display:flex;flex-direction:column;}
+  .stack-list li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--linha-escura);color:var(--texto-claro);font-size:15px;}
+  .stack-list li b{color:var(--rosa);white-space:nowrap;font-weight:600;}
+  .stack-total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:16px;font-family:var(--display);text-transform:uppercase;font-size:22px;}
+  .stack-total s{color:var(--rosa);}
+  .price{background:var(--creme);color:var(--vinho-escuro);border-radius:22px;padding:36px 28px;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;box-shadow:0 30px 60px rgba(0,0,0,.3);min-width:0;}
+  .price .from{font-size:15px;color:var(--muted);}
+  .price .from s{color:var(--vinho);}
+  .price .main{font-family:var(--display);font-size:clamp(48px,6vw,72px);line-height:1;color:var(--vinho);}
+  .price .main small{font-size:.4em;vertical-align:.9em;margin-right:4px;}
+  .price .cash{font-size:15px;}
+  .price .daily{font-size:13px;color:var(--muted);}
+  .price .btn{width:100%;}
+  .secure{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;font-size:12px;color:var(--muted);}
+
+  /* SOBRE */
+  .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:center;}
+  .about-photo{border-radius:22px;overflow:hidden;box-shadow:var(--sombra);aspect-ratio:3/4;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
+  .about-text{display:flex;flex-direction:column;gap:16px;min-width:0;}
+  .about-text p{color:#4a3540;}
+  .timeline{display:flex;flex-direction:column;gap:12px;border-left:2px solid var(--rosa);padding-left:20px;margin-top:6px;}
+  .timeline li{position:relative;font-size:15px;}
+  .timeline li::before{content:"";position:absolute;left:-27px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--vinho);border:2px solid var(--creme);}
+
+  /* GARANTIA */
+  .guarantee{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center;}
+  .seal{width:clamp(150px,18vw,210px);aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,var(--azul),var(--roxo));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--branco);box-shadow:0 0 0 10px rgba(232,180,200,.18),0 0 0 22px rgba(232,180,200,.08);text-align:center;}
+  .seal b{font-family:var(--display);font-weight:400;font-size:clamp(56px,7vw,82px);line-height:.9;}
+  .seal span{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+
+  /* FAQ */
+  .faq{display:flex;flex-direction:column;gap:10px;max-width:820px;margin-inline:auto;}
+  .faq details{background:var(--branco);border-radius:14px;box-shadow:0 6px 18px rgba(61,14,41,.06);}
+  .faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-family:var(--display);font-size:24px;color:var(--vinho);line-height:1;flex:none;transition:transform .2s;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq summary:focus-visible{outline:3px solid var(--roxo);outline-offset:-3px;border-radius:14px;}
+  .faq details p{padding:0 22px 20px;color:#5a4450;font-size:15px;}
+
+  /* ÚLTIMO AVISO */
+  .scenarios{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .scenario{border-radius:20px;padding:30px 26px;display:flex;flex-direction:column;gap:12px;min-width:0;}
+  .scenario.a{background:rgba(255,255,255,.04);border:1px solid var(--linha-escura);}
+  .scenario.b{background:linear-gradient(135deg,rgba(28,126,214,.25),rgba(124,58,237,.35));border:1px solid rgba(124,58,237,.6);}
+  .scenario .tag{font-size:12px;letter-spacing:3px;font-weight:600;color:var(--rosa);}
+  .scenario h3{font-size:28px;}
+  .scenario p{color:var(--texto-claro);font-size:15px;}
+
+  footer{background:var(--vinho-escuro);color:var(--texto-claro-2);text-align:center;padding-block:48px;font-size:13px;border-top:1px solid var(--linha-escura);}
+  .foot{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;}
+  .foot-links a{color:var(--texto-claro);}
+  .disclaimer{max-width:70ch;font-size:12px;opacity:.8;}
+
+  @media (max-width:960px){
+    .letters{grid-template-columns:repeat(2,1fr);}
+    .letters .letter:last-child{grid-column:1 / -1;}
+    .formats{grid-template-columns:repeat(2,1fr);}
+    .tools{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:820px){
+    .vsl{max-width:340px;}
+    .story,.about,.offer,.two-col,.fit,.objections,.scenarios,.creds{grid-template-columns:1fr;}
+    .hero-photo{max-width:420px;aspect-ratio:4/4.4;}
+    .about-photo{max-width:440px;}
+    .frame{width:min(86%,360px);}
+    .collage{gap:8px;}
+    .stats,.prints{grid-template-columns:1fr;}
+    .print{aspect-ratio:auto;min-height:160px;}
+    .guarantee{grid-template-columns:1fr;justify-items:center;text-align:center;}
+    .module ul{padding-left:22px;}
+    .module summary{grid-template-columns:44px 1fr;}
+    .module .m-count{grid-column:2;justify-self:start;}
+  }
+  @media (max-width:520px){
+    .letters,.formats,.tools{grid-template-columns:1fr;}
+    .callouts{grid-template-columns:1fr;}
+    .btn{padding:18px 22px;font-size:14px;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+:root{--img1:url('images/img-02.jpg');--img2:url('images/img-03.jpg');--img3:url('images/img-04.jpg');}
+</style>
+</head>
+<body>
+
+<!-- 1. HERO + VSL -->
+<header class="hero">
+  <div class="wrap hero-v">
+    <div class="hv-text">
+      <div class="brand">MÉTODO <span>VICIO</span></div>
+      <h1 class="hero-lead"><span>O problema não são os seus seguidores, é a falta de um <em>método que transforme o seu nome em algo que as pessoas compram.</em></span></h1>
+    </div>
+    <div class="hv-video">
+      <!-- VSL vertical (9:16): substitua o bloco .vsl-placeholder pelo embed do player (Vturb, Panda, YouTube Shorts, Vimeo…) -->
+      <div class="vsl" id="vsl">
+        <div class="vsl-placeholder" style="background-image:linear-gradient(rgba(34,8,26,.45),rgba(34,8,26,.7)),url('images/img-02.jpg')">
+          <span class="play" aria-hidden="true"></span>
+          <span class="vsl-label">Espaço da VSL · vídeo vertical 9:16</span>
+        </div>
+      </div>
+    </div>
+    <div class="hv-cta">
+      <a class="btn" href="#oferta">Quero entrar no Método VICIO <span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- 2. DOR -->
+<section class="light">
+  <div class="wrap stack">
+    <div class="label"><span class="num">!</span><span class="txt">Se isso é você, continua lendo</span></div>
+    <h2 class="h2">Até quando você vai trabalhar <em>de graça para o algoritmo?</em></h2>
+    <div class="stackwords" aria-label="Você grava, posta, espera o viral, mas a conta não fecha">
+      <span>Você grava.</span><span>Posta.</span><span>Espera o viral.</span><span>Recomeça.</span><span>Mas a conta não fecha.</span>
+    </div>
+    <div class="two-col" style="margin-top:20px">
+      <div class="listcard">
+        <h3>Se você está cansada de:</h3>
+        <ul class="checks x">
+          <li>Postar todo dia e não receber uma mensagem perguntando o preço</li>
+          <li>Depender de indicação para fechar cliente</li>
+          <li>Achar que só vai poder vender quando tiver 100 mil seguidores</li>
+          <li>Ver perfis menores que o seu vendendo todo mês e não entender como</li>
+        </ul>
+      </div>
+      <div class="listcard">
+        <h3>Então provavelmente você também já:</h3>
+        <ul class="checks x">
+          <li>Comemorou um vídeo com muitas views que não trouxe nenhuma venda</li>
+          <li>Ficou sem graça de falar do seu produto e deixou para depois</li>
+          <li>Pensou em criar um curso ou mentoria e não soube por onde começar</li>
+          <li>Tratou o conteúdo como hobby, sem agenda, sem meta e sem oferta</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:8px"><b>A culpa não é sua.</b> Ninguém te ensinou que audiência grande e audiência que compra são coisas completamente diferentes.</p>
+  </div>
+</section>
+
+<!-- 3. HISTÓRIA -->
+<section class="dark grid-bg">
+  <div class="wrap stack">
+    <div class="story">
+      <div class="story-text">
+        <div class="label"><span class="num">♥</span><span class="txt">Minha história</span></div>
+        <h2 class="h2">Eu também já corri <em>atrás de views</em></h2>
+        <p>Eu trabalho com internet desde os 15 anos. Comecei como influenciadora: postava trend, challenge de maquiagem, tudo o que estava em alta. Gravava até usando colete na coluna. E nada viralizava. Nenhum conteúdo performava. Eu trabalhava como se fosse um emprego, mas não ganhava um real com a internet.</p>
+        <div class="callouts">
+          <div class="callout"><b>15 anos</b><span>a idade em que comecei a postar</span></div>
+          <div class="callout"><b>R$ 0</b><span>era o que eu ganhava com todo esse conteúdo</span></div>
+        </div>
+      </div>
+      <div class="frame"><img src="images/img-05.jpg" alt="Mariana adolescente gravando vídeo de maquiagem usando colete na coluna"></div>
+    </div>
+    <div class="collage">
+      <img src="images/img-06.jpg" alt="Story de 2019 de Mariana treinando maquiagem">
+      <img src="images/img-07.jpg" alt="Perfil antigo de maquiagem com 176 seguidores">
+      <img src="images/img-08.jpg" alt="Mariana em vídeo de challenge de maquiagem">
+    </div>
+    <div class="story-turn">
+      <h3 class="story-sub">O fundo do poço</h3>
+      <p>Eu nunca quis trabalhar para os outros. Mas todo mundo me perguntava sobre o corporativo, e todos os meus amigos estavam se dando bem em carreiras corporativas enquanto eu seguia postando sem retorno. Foi quando a ficha caiu: eu precisava escolher entre a carreira corporativa e o meu próprio caminho.</p>
+      <p>Escolhi empreender no digital. Abri minha própria empresa de serviços e usei o conteúdo como canal para atrair clientes. E descobri que não bastava postar: o faturamento não acompanhava, e a folha de pagamento chegava todo mês.</p>
+      <p>Até que eu entendi que o dinheiro não vem do post, vem do nome que os posts constroem. Parei de perguntar "como eu viralizo?" e comecei a perguntar <b>"por que alguém compraria de mim?"</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. DESCOBERTA -->
+<section class="deep grid-bg">
+  <div class="wrap">
+    <div class="discovery">
+      <div class="small">A descoberta que mudou tudo</div>
+      <h2 class="big">View não paga boleto.</h2>
+      <h2 class="big"><em>Confiança paga.</em></h2>
+      <p class="lead" style="margin-top:14px">Ninguém descobre você e compra no mesmo dia. A pessoa segue, acompanha, confia, deseja e só então compra. O Método VICIO usa o ciclo do hábito (gatilho, rotina, recompensa e repetição) dos dois lados da tela: na sua audiência, para ela voltar e confiar mais a cada vídeo, e em você, para o conteúdo virar rotina de trabalho.</p>
+    </div>
+    <div class="cycle" role="region" aria-label="O Ciclo do Vício" tabindex="0">
+      <div class="cycle-grid">
+        <div class="cycle-head blank"></div>
+        <div class="cycle-head">Gatilho</div><div class="cycle-head">Rotina</div><div class="cycle-head">Recompensa</div><div class="cycle-head">Repetição</div>
+        <div class="cycle-row">Na audiência</div>
+        <div class="cycle-cell">O gancho que faz parar de rolar o feed</div>
+        <div class="cycle-cell">Ver seus Reels sempre</div>
+        <div class="cycle-cell">O valor que você entrega em cada vídeo</div>
+        <div class="cycle-cell">Volta todo dia, até comprar</div>
+        <div class="cycle-row">Em você</div>
+        <div class="cycle-cell">Um processo pronto para seguir</div>
+        <div class="cycle-cell">Postar com constância</div>
+        <div class="cycle-cell">Ver o resultado virar venda</div>
+        <div class="cycle-cell">Continua porque funciona</div>
+      </div>
+    </div>
+    <p class="quote-line">"Quando você tem processo, a constância vem. Quando a constância vem, a audiência vicia. Quando a audiência vicia, ela compra."</p>
+  </div>
+</section>
+
+<!-- 5. RESULTADOS -->
+<section class="light">
+  <div class="wrap stack">
+    <div class="label"><span class="num">★</span><span class="txt">Resultados</span></div>
+    <h2 class="h2">Foi assim que meu conteúdo <em>virou negócio</em></h2>
+    <div class="stats">
+      <div class="stat"><b>+8</b><span>fontes de renda no digital</span></div>
+      <div class="stat"><b>+1.000</b><span>alunas</span></div>
+      <div class="stat"><b>+200</b><span>marcas trabalhadas</span></div>
+    </div>
+    <h3 style="font-size:clamp(24px,3vw,34px);color:var(--vinho);margin-top:16px">E não parou por aí…</h3>
+    <div class="creds">
+      <div class="cred"><span>7 anos criando conteúdo e construindo marca pessoal na internet</span></div>
+      <div class="cred"><span>Parcerias com marcas como L'Oréal, Mercado Livre e Eudora</span></div>
+      <div class="cred"><span>Renda com social media, UGC, publicidade, palestras, workshops e treinamentos</span></div>
+      <div class="cred"><span>Convidada para palestrar sobre UGC em um evento de TikTok Shop</span></div>
+    </div>
+    <div class="mod-head" style="margin-top:24px">
+      <h3 style="font-size:clamp(24px,3vw,34px);color:var(--vinho)">Mas não acredite só no que eu estou falando</h3>
+      <div class="mc-nav"><button type="button" class="fb-btn mc-btn" data-dir="-1" aria-label="Depoimento anterior">←</button><button type="button" class="fb-btn mc-btn" data-dir="1" aria-label="Próximo depoimento">→</button></div>
+    </div>
+    <div class="fb-track" id="fb-track" tabindex="0" aria-label="Depoimentos de alunas">
+      <figure class="fb"><img src="images/img-09.jpg" alt="Depoimento da aluna Lorena: mudou de casa, abriu novos negócios e começou a ganhar 300x mais"></figure>
+      <figure class="fb"><img src="images/img-10.jpg" alt="Depoimento da aluna Denise: fechou trabalho com o Mercado Livre através da mentoria"></figure>
+      <figure class="fb"><img src="images/img-11.jpg" alt="Depoimento da aluna Giovanna: fechou um contrato de 9 vídeos pagos"></figure>
+      <figure class="fb"><img src="images/img-12.jpg" alt="Depoimento da aluna Camila sobre a mentoria de Clips"></figure>
+      <figure class="fb"><img src="images/img-13.jpg" alt="Camis fechou cliente uma semana depois da mentoria" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-14.jpg" alt="Depoimento da aluna Ju: fechou mais de 30 clips com um único cliente" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-15.jpg" alt="Depoimento da aluna Eli: fechou contrato em dólar depois de ajustar o portfólio" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-16.jpg" alt="Vídeo da aluna Amanda: a marca que me contratou" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-17.jpg" alt="Depoimento da aluna Mika: nunca desista" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-18.jpg" alt="Depoimento da aluna Vi: escolhi a pessoa certa para me ensinar" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-19.jpg" alt="Depoimento da aluna Fran sobre a Mentoria Express" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-20.jpg" alt="Turma cheia na aula ao vivo da mentoria" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-21.jpg" alt="Encontro ao vivo com alunas da mentoria" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-22.jpg" alt="Workshop ao vivo com o Somos Pretos Studio" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-23.jpg" alt="Mentoria completa com a Ca, aluna que mora nos Estados Unidos" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-24.jpg" alt="Depoimento da aluna Fernanda: muita coisa boa por vir" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-25.jpg" alt="Depoimento da aluna Raissa sobre a mentoria de UGC" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-26.jpg" alt="Mentoria de Clips em grupo" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-27.jpg" alt="Feedback da aluna Camila Adriane sobre a mentoria de Clips" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-28.jpg" alt="Depoimento da aluna Luanna sobre a mentoria de Clips" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-29.jpg" alt="Depoimento da aluna Mariana Leonhardt sobre a mentoria" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-30.jpg" alt="Mentoria para aluna que mora no Paraguai" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-31.jpg" alt="Mentoria de Clips com Helo, Ivana e Adri" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-32.jpg" alt="Depoimento da aluna Jessika sobre a mentoria em grupo de Clips" loading="lazy"></figure>
+      <figure class="fb"><img src="images/img-33.jpg" alt="Mais uma mentoria em grupo de Clips" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6. O MÉTODO -->
+<section class="white">
+  <div class="wrap stack">
+    <div class="label"><span class="num">V</span><span class="txt">O método</span></div>
+    <h2 class="h2">Apresento o <em>Método VICIO</em></h2>
+    <p class="lead">Um processo para postar Reels com constância, fazer a sua audiência viciar em você e transformar essa audiência em vendas. São cinco etapas, na ordem certa, e cada aula termina com uma tarefa. Ao final do curso, as tarefas formam a sua estratégia pronta.</p>
+    <div class="letters">
+      <div class="letter"><div class="l">V</div><h3>Você</h3><p>Você sabe de onde parte, qual é o seu nicho de verdade (o território, não a categoria), quem é a cliente ideal que dá resultado, em que degrau está e como encaixar o conteúdo na rotina.</p><div class="mods">Módulos 1 e 2</div></div>
+      <div class="letter"><div class="l">I</div><h3>Imagem</h3><p>Um perfil que funciona como vitrine e converte quem chega.</p><div class="mods">Módulo 3</div></div>
+      <div class="letter"><div class="l">C</div><h3>Constância</h3><p>A estratégia do mês, a distribuição por estilo de conteúdo e um cronograma pronto, da inspiração (5P3) à data de postagem.</p><div class="mods">Módulos 4 e 7</div></div>
+      <div class="letter"><div class="l">I</div><h3>Impacto</h3><p>Formatos validados, ganchos que param o scroll, roteiro, CTA e Reels que vendem.</p><div class="mods">Módulos 5 e 6</div></div>
+      <div class="letter"><div class="l">O</div><h3>Otimização</h3><p>Você lê as métricas, descobre por que um Reels funcionou ou não e repete o que dá certo.</p><div class="mods">Módulo 8</div></div>
+    </div>
+    <p class="tagline">Com processo, você posta sem parar. Com constância, sua audiência vicia em você. E audiência viciada compra.</p>
+  </div>
+</section>
+
+<!-- 7. OBJEÇÕES -->
+<section class="dark grid-bg">
+  <div class="wrap stack">
+    <div class="label"><span class="num">?</span><span class="txt">Funciona para você</span></div>
+    <h2 class="h2">O Método VICIO funciona <em>mesmo que…</em></h2>
+    <div class="objections">
+      <div class="obj"><q>Mas meu perfil é pequeno…</q><p>Você não precisa de milhares de seguidores para vender. Uma comunidade pequena que confia em você compra mais que uma audiência grande que só assiste. E com UGC dá para <b>ganhar dinheiro criando conteúdo antes mesmo de crescer</b>.</p></div>
+      <div class="obj"><q>Mas eu ainda não tenho produto…</q><p>Você escolhe o caminho de monetização que faz sentido agora e aprende a criar o produto a partir do que a sua audiência já te pede. <b>É muito mais fácil vender o que as pessoas já querem.</b></p></div>
+      <div class="obj"><q>Mas eu tenho vergonha de vender…</q><p>Você aprende a estrutura do Reels que vende: problema, desejo, contexto, solução, prova e CTA. A venda vem dentro de algo útil ou de uma história, então <b>você vende sem parecer propaganda</b>.</p></div>
+      <div class="obj"><q>Mas eu não tenho tempo…</q><p>O mínimo é 2 Reels por semana. Você monta uma rotina que cabe na sua vida, grava em lote e sai com um plano mínimo para a pior semana. <b>Constância sustentável vale mais que frequência impossível.</b></p></div>
+      <div class="obj wide"><q>Mas meu nicho é saturado…</q><p>Saturado é falar igual a todo mundo. Você encontra o cruzamento entre o que sabe, o que ama falar e o que as pessoas já te pagam para fazer, e transforma isso em um <b>recorte que só você tem</b>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7b. COMPARATIVO -->
+<section class="light">
+  <div class="wrap stack">
+    <div class="label"><span class="num">≠</span><span class="txt">Por que é diferente</span></div>
+    <h2 class="h2">O Método VICIO é diferente de <em>tudo que você já viu</em></h2>
+    <div class="compare" role="table" aria-label="Comparativo entre outros cursos e o Método VICIO">
+      <div class="cmp-head" role="row"><span role="columnheader">Outros cursos de Instagram</span><span role="columnheader">Método VICIO</span></div>
+      <div class="cmp-row" role="row"><span role="cell">Ensinam a viralizar</span><span role="cell">Ensina a vender, mesmo com poucas visualizações</span></div>
+      <div class="cmp-row" role="row"><span role="cell">Mandam copiar trend e viral</span><span role="cell">Ensina a adaptar referências validadas ao seu nicho e ao seu jeito</span></div>
+      <div class="cmp-row" role="row"><span role="cell">Medem sucesso em seguidores</span><span role="cell">Mede sucesso em clientes e vendas, com uma função clara para cada Reels</span></div>
+      <div class="cmp-row" role="row"><span role="cell">Tratam conteúdo como hobby</span><span role="cell">Trata conteúdo como trabalho: rotina, agenda, metas e análise</span></div>
+      <div class="cmp-row" role="row"><span role="cell">Param na postagem</span><span role="cell">Vai até a análise: você descobre por que um Reels funcionou e repete o que dá certo</span></div>
+      <div class="cmp-row" role="row"><span role="cell">Aulas longas que você nunca termina</span><span role="cell">Aulas de 5 a 8 minutos, cada uma com uma tarefa prática</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7c. PASSO A PASSO -->
+<section class="deep grid-bg">
+  <div class="wrap stack">
+    <div class="label"><span class="num">4</span><span class="txt">Como funciona</span></div>
+    <h2 class="h2">Do perfil parado à primeira venda <em>em 4 passos</em></h2>
+    <div class="steps">
+      <div class="step"><span class="step-n">Passo #01</span><h3>Defina o que você vende e para quem</h3><p>Posicionamento, nicho, audiência ideal e o seu caminho de monetização: serviço, produto, publi ou UGC.</p></div>
+      <div class="step"><span class="step-n">Passo #02</span><h3>Transforme o perfil em vitrine</h3><p>Nome, bio, link, destaques e fixados organizados para quem chega entender o que você oferece.</p></div>
+      <div class="step"><span class="step-n">Passo #03</span><h3>Poste com processo e Reels que vendem</h3><p>Estratégia do mês, cronograma pronto e Reels com gancho, roteiro e CTA feitos para levar a pessoa até a compra.</p></div>
+      <div class="step"><span class="step-n">Passo #04</span><h3>Analise e repita o que dá certo</h3><p>Leia as métricas, descubra por que um Reels funcionou ou não e repita com intenção o que traz cliente.</p></div>
+    </div>
+    <div class="center" style="display:flex;justify-content:center;margin-top:12px"><a class="btn" href="#oferta">Quero começar agora <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<!-- 8. CONTEÚDO -->
+<section class="light mod-sec">
+  <div class="wrap stack">
+    <div class="label"><span class="num">10</span><span class="txt">O que tem dentro</span></div>
+    <div class="mod-head">
+      <h2 class="h2">Você <em>aprende:</em></h2>
+      <div class="mc-nav"><button type="button" class="mc-btn" data-dir="-1" aria-label="Módulos anteriores">←</button><button type="button" class="mc-btn" data-dir="1" aria-label="Próximos módulos">→</button></div>
+    </div>
+    <p class="lead">Aulas diretas ao ponto, cada uma com uma tarefa. As tarefas montam a sua estratégia ao longo do curso. Toque em um módulo para ver as aulas.</p>
+  </div>
+  <div class="mc-track" id="mc-track" tabindex="0" aria-label="Módulos do curso">
+      <figure class="mcard">
+        <button class="mc-face bg-p1" type="button" aria-expanded="false" style="background-position:50% 30%">
+          <span class="mc-vert" aria-hidden="true">Módulo 00</span>
+          <span class="mc-letter">Início · 4 aulas</span>
+          <span class="mc-title"><b>Boas-vindas</b><small>seu nome como ativo</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>Bem-vinda ao método</li><li>Seu nome como ativo</li><li>O que é um ecossistema no digital</li><li>O maior erro de quem começa</li></ul></span>
+        </button>
+        <figcaption>Módulo 00</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-grad" type="button" aria-expanded="false">
+          <span class="mc-vert" aria-hidden="true">Módulo 01</span>
+          <span class="mc-letter">V de Você · 6 aulas</span>
+          <span class="mc-title"><b>Posicionamento</b><small>nicho e cliente ideal</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>De onde você está começando?</li><li>Perfil novo ou perfil atual?</li><li>O que é posicionamento digital</li><li>Posicionamento por dentro (mão na massa)</li><li>Nicho de verdade: o território do seu conteúdo</li><li>Seu ICP: com quem você vai conversar</li></ul></span>
+        </button>
+        <figcaption>Módulo 01</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-p2" type="button" aria-expanded="false" style="background-position:50% 35%">
+          <span class="mc-vert" aria-hidden="true">Módulo 02</span>
+          <span class="mc-letter">V de Você · 3 aulas</span>
+          <span class="mc-title"><b>Monetização</b><small>plano e rotina</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>A escadinha: em que degrau você está?</li><li>Do seguidor ao dinheiro: caminhos de monetização</li><li>Conteúdo é trabalho: tempo, rotina e vida</li></ul></span>
+        </button>
+        <figcaption>Módulo 02</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-vinho" type="button" aria-expanded="false">
+          <span class="mc-vert" aria-hidden="true">Módulo 03</span>
+          <span class="mc-letter">I de Imagem · 3 aulas</span>
+          <span class="mc-title"><b>Perfil</b><small>que vende</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>Sua vitrine: nome, @, foto e bio</li><li>Link, destaques e posts fixados</li><li>Arrumando o perfil na prática</li></ul></span>
+        </button>
+        <figcaption>Módulo 03</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-p3" type="button" aria-expanded="false" style="background-position:50% 20%">
+          <span class="mc-vert" aria-hidden="true">Módulo 04</span>
+          <span class="mc-letter">C de Constância · 4 aulas</span>
+          <span class="mc-title"><b>Estratégia</b><small>de conteúdo</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>O que é estratégia de conteúdo</li><li>Os estilos de conteúdo e a função de cada um</li><li>Cozinhando o lead</li><li>Como distribuir seus conteúdos</li></ul></span>
+        </button>
+        <figcaption>Módulo 04</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-grad" type="button" aria-expanded="false">
+          <span class="mc-vert" aria-hidden="true">Módulo 05</span>
+          <span class="mc-letter">I de Impacto · 9 aulas</span>
+          <span class="mc-title"><b>Laboratório</b><small>de formatos</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>Conteúdo × formato: seu laboratório</li><li>B-roll</li><li>Clone</li><li>Ranking</li><li>Mapa mental</li><li>Storytelling</li><li>Novelinha</li><li>Palestrinha</li><li>Trends a seu favor</li></ul></span>
+        </button>
+        <figcaption>Módulo 05</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-p1" type="button" aria-expanded="false" style="background-position:70% 60%">
+          <span class="mc-vert" aria-hidden="true">Módulo 06</span>
+          <span class="mc-letter">I de Impacto · 6 aulas</span>
+          <span class="mc-title"><b>Roteiro</b><small>e gravação</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>Da ideia ao roteiro</li><li>Hooks: o 80/20 do seu vídeo</li><li>Roteiros a partir de conteúdos validados</li><li>CTA: o pedido que muda o resultado</li><li>O Reels que vende</li><li>Como eu gravo meus Reels</li></ul></span>
+        </button>
+        <figcaption>Módulo 06</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-vinho" type="button" aria-expanded="false">
+          <span class="mc-vert" aria-hidden="true">Módulo 07</span>
+          <span class="mc-letter">C de Constância · 3 aulas</span>
+          <span class="mc-title"><b>Cronograma</b><small>da inspiração à postagem</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>O passo a passo: da inspiração ao cronograma</li><li>Na prática: 5P3 e chuva de ideias</li><li>Na prática: montando o cronograma</li></ul></span>
+        </button>
+        <figcaption>Módulo 07</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-p2" type="button" aria-expanded="false" style="background-position:40% 70%">
+          <span class="mc-vert" aria-hidden="true">Módulo 08</span>
+          <span class="mc-letter">O de Otimização · 5 aulas</span>
+          <span class="mc-title"><b>Otimização</b><small>análise de Reels</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>Pare de postar no automático</li><li>As métricas que importam</li><li>Na prática: analisando um Reels que deu certo</li><li>Na prática: diagnosticando um Reels que não deu certo</li><li>Otimizar e repetir o que deu certo</li></ul></span>
+        </button>
+        <figcaption>Módulo 08</figcaption>
+      </figure>
+      <figure class="mcard">
+        <button class="mc-face bg-grad" type="button" aria-expanded="false">
+          <span class="mc-vert" aria-hidden="true">Módulo 09</span>
+          <span class="mc-letter">VICIO completo · 1 aula + desafio</span>
+          <span class="mc-title"><b>Desafio</b><small>de 30 dias</small></span>
+          <span class="mc-lessons"><span class="mc-lh">Aulas</span><ul><li>O seu desafio de 30 dias: você roda o VICIO completo pela primeira vez</li></ul></span>
+        </button>
+        <figcaption>Módulo 09</figcaption>
+      </figure>
+  </div>
+  <div class="wrap"><div class="facts"><span class="fact"><b>44</b> aulas em <b>10</b> módulos</span><span class="fact">de <b>5 a 8</b> minutos</span><span class="fact">cerca de <b>6 horas</b> no total</span><span class="fact">foco total em <b>Reels</b></span></div></div>
+</section>
+<script>
+(function(){
+  document.querySelectorAll('.fb-btn').forEach(function(b){b.addEventListener('click',function(){
+    var ft=document.getElementById('fb-track'); var c=ft.querySelector('.fb'); var w=c?c.getBoundingClientRect().width+16:300;
+    ft.scrollBy({left:w*Number(b.dataset.dir),behavior:'smooth'});});});
+  var t=document.getElementById('mc-track'); if(!t) return;
+  document.querySelectorAll('.mc-btn:not(.fb-btn)').forEach(function(b){b.addEventListener('click',function(){
+    var c=t.querySelector('.mcard'); var w=c?c.getBoundingClientRect().width+16:300;
+    t.scrollBy({left:w*Number(b.dataset.dir),behavior:'smooth'});});});
+  t.querySelectorAll('.mc-face').forEach(function(f){f.addEventListener('click',function(){
+    var o=f.getAttribute('aria-expanded')==='true'; f.setAttribute('aria-expanded',o?'false':'true');});});
+})();
+</script>
+
+<!-- 9. SPOILER: FORMATOS -->
+<section class="deep grid-bg">
+  <div class="wrap stack">
+    <div class="label"><span class="num">7</span><span class="txt">Formatos</span></div>
+    <h2 class="h2">Formato é ferramenta. <em>Venda é o objetivo.</em></h2>
+    <p class="lead">Dentro do VICIO você também aprende 7 formatos de Reels validados, cada um usado com uma função: gerar autoridade, criar conexão ou levar a pessoa mais perto da compra. Cada formato vem em uma aula de 3 a 4 minutos.</p>
+    <div class="formats">
+      <div class="format"><span class="n">FORMATO 01</span><h3>B-roll</h3><p>Cenas de rotina com texto na tela. Perfeito para quem ainda trava na câmera.</p></div>
+      <div class="format"><span class="n">FORMATO 02</span><h3>Clone</h3><p>Você interpretando você e sua cliente. Humor e objeções na mesma cena.</p></div>
+      <div class="format"><span class="n">FORMATO 03</span><h3>Ranking</h3><p>Do pior para o melhor. Segura a pessoa até o fim para saber o número 1.</p></div>
+      <div class="format"><span class="n">FORMATO 04</span><h3>Mapa mental</h3><p>Uma ideia explicada passo a passo na tela. Campeão de salvamentos.</p></div>
+      <div class="format"><span class="n">FORMATO 05</span><h3>Storytelling</h3><p>Começa pelo momento mais tenso. Gera conexão e prepara a venda.</p></div>
+      <div class="format"><span class="n">FORMATO 06</span><h3>Novelinha</h3><p>Episódios com gancho no final. As pessoas voltam para ver o próximo.</p></div>
+      <div class="format"><span class="n">FORMATO 07</span><h3>Palestrinha</h3><p>Você com energia de palco. Autoridade e profundidade em poucos minutos.</p></div>
+      <div class="format cta-card"><p><b>Formato bom é o que traz cliente,</b> não só visualização.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. FERRAMENTAS -->
+<section class="light">
+  <div class="wrap stack">
+    <div class="label"><span class="num">+</span><span class="txt">Você leva junto</span></div>
+    <h2 class="h2">As aulas te ensinam a vender… <em>e você leva os materiais prontos</em></h2>
+    <div class="tools">
+      <div class="tool"><span class="kind">Checklist</span><h3>Checklist do Ponto de Partida</h3><p>O diagnóstico honesto do seu perfil, item por item, para saber exatamente de onde você sai.</p></div>
+      <div class="tool"><span class="kind">Kit</span><h3>Kit do ICP</h3><p>Quem é a sua cliente ideal, o que trava ela e o que ela deseja. Todo conteúdo passa por aqui.</p></div>
+      <div class="tool"><span class="kind">Checklist</span><h3>Checklist do Perfil</h3><p>Nome, @, foto, bio, link, destaques e fixados revisados para converter quem chega.</p></div>
+      <div class="tool"><span class="kind">Planilha</span><h3>Calculadora de Distribuição</h3><p>Transforma o objetivo do mês em quantos Reels de cada estilo de conteúdo você precisa postar.</p></div>
+      <div class="tool"><span class="kind">Banco</span><h3>Banco de Ganchos</h3><p>Ganchos prontos para adaptar e fazer a pessoa parar de rolar o feed.</p></div>
+      <div class="tool"><span class="kind">Notion ou Trello</span><h3>Central VICIO</h3><p>Ideias, roteiros, cronograma e análises em um só lugar, para você postar sem parar.</p></div>
+      <div class="tool tool-wide"><span class="kind">Checklist</span><h3>Checklist do Desafio de 30 Dias</h3><p>O passo a passo para rodar o VICIO completo pela primeira vez, do posicionamento à análise dos seus Reels.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10b. BÔNUS -->
+<section class="dark grid-bg">
+  <div class="wrap stack">
+    <div class="label"><span class="num">🎁</span><span class="txt">Bônus</span></div>
+    <h2 class="h2">O método sozinho já te coloca para vender… <em>mas você merece ainda mais</em></h2>
+    <div class="bonuses five">
+      <div class="bonus b-feat"><span class="b-tag">Bônus 01</span><h3>Agente VICIO</h3><p>Uma IA treinada no método, que funciona em qualquer ferramenta. Ela te ajuda a aplicar cada etapa do VICIO no seu perfil, do posicionamento ao roteiro.</p><span class="b-val">Valor: <s>R$ <span class="ph">[00]</span></s></span></div>
+      <div class="bonus"><span class="b-tag">Bônus 02</span><h3>Aula: Stories e carrossel</h3><p>Como usar Stories e carrossel junto com os seus Reels para aquecer a audiência e levar a pessoa até a compra.</p><span class="b-val">Valor: <s>R$ <span class="ph">[00]</span></s></span></div>
+      <div class="bonus"><span class="b-tag">Bônus 03</span><h3>Tabela de preços e mídia kit</h3><p>Quanto cobrar e como se apresentar para as marcas em publi e UGC.</p><span class="b-val">Valor: <s>R$ <span class="ph">[00]</span></s></span></div>
+      <div class="bonus"><span class="b-tag">Bônus 04</span><h3>Workshop: Storytelling</h3><p>Como contar a sua história e a dos seus clientes de um jeito que prende, cria conexão e prepara a venda sem parecer propaganda.</p><span class="b-val">Valor: <s>R$ <span class="ph">[00]</span></s></span></div>
+      <div class="bonus"><span class="b-tag">Bônus 05</span><h3>Workshop: Transforme permutas em trabalhos pagos</h3><p>Como sair do "recebo produto em troca de post" e começar a cobrar das marcas pelo seu conteúdo.</p><span class="b-val">Valor: <s>R$ <span class="ph">[00]</span></s></span></div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:12px"><a class="btn" href="#oferta">Quero o método com os bônus <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<!-- 11. PARA QUEM -->
+<section class="white">
+  <div class="wrap stack">
+    <div class="label"><span class="num">✓</span><span class="txt">Para quem é</span></div>
+    <h2 class="h2">O VICIO foi feito <em>para você</em> se…</h2>
+    <div class="fit">
+      <div class="listcard">
+        <h3>É para você</h3>
+        <ul class="checks">
+          <li>Você sempre quis crescer na internet e nunca saiu do lugar</li>
+          <li>Você é prestadora de serviço ou especialista e depende de indicação</li>
+          <li>Você tem um negócio e quer ser a cara da própria marca</li>
+          <li>Você é criadora e quer viver de conteúdo</li>
+        </ul>
+      </div>
+      <div class="listcard no">
+        <h3>Não é para você</h3>
+        <ul class="checks x">
+          <li>Você quer viralizar sem estratégia</li>
+          <li>Você procura uma fórmula mágica</li>
+          <li>Você não está disposta a postar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. OFERTA -->
+<section class="dark grid-bg" id="oferta">
+  <div class="wrap stack">
+    <div class="label"><span class="num">$</span><span class="txt">Condição especial</span></div>
+    <h2 class="h2">Tenha acesso a tudo isso por uma <em>condição especial</em></h2>
+    <div class="offer">
+      <div class="offer-list">
+        <h3>O que você recebe</h3>
+        <ul class="stack-list">
+          <li><span>Método VICIO completo: 10 módulos e 44 aulas, foco total em Reels</span><b>R$ 197</b></li>
+          <li><span>Biblioteca com 7 formatos de Reels validados</span><b>R$ 97</b></li>
+          <li><span>Desafio de 30 dias para rodar o método inteiro</span><b>R$ 47</b></li>
+          <li><span>7 materiais prontos: checklists, Kit do ICP, Calculadora de Distribuição, Banco de Ganchos e Central VICIO</span><b>R$ 97</b></li>
+          <li><span>5 bônus: Agente VICIO, aula de Stories e carrossel, tabela de preços e mídia kit e 2 workshops</span><b>R$ 97</b></li>
+          <li><span>Acesso por 1 ano com atualizações</span><b>R$ 47</b></li>
+        </ul>
+        <div class="stack-total"><span>Valor total</span><s>R$ 582</s></div>
+      </div>
+      <div class="price">
+        <span class="from">De <s>R$ 582</s> por apenas</span>
+        <span class="main">R$ 197</span>
+        <span class="cash">à vista no Pix ou em até 12x de R$ <span class="ph">[00]</span> no cartão</span>
+        <span class="daily">Menos de R$ 17 por mês para construir o seu nome</span>
+        <a class="btn" href="#oferta">Quero minha vaga com desconto <span class="arrow">→</span></a>
+        <div class="secure"><span>💳 Cartão em até 12x ou Pix</span><span>🔒 Compra segura</span><span>Acesso imediato</span><span><span class="ph">[7]</span> dias de garantia</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. SOBRE -->
+<section class="light">
+  <div class="wrap about">
+    <div class="about-photo"><img src="images/img-03.jpg" alt="Mariana Magno sentada em um sofá, em foto de retrato"></div>
+    <div class="about-text">
+      <div class="label"><span class="num">M</span><span class="txt">Quem vai te ensinar</span></div>
+      <h2 class="h2">Quem é <em>Mariana Magno?</em></h2>
+      <p>Eu ganho meu próprio dinheiro desde os 13 anos. Já fui maquiadora profissional, tive loja de biquíni, passei pelo CLT e abri uma agência de marketing. Em cada um desses caminhos eu vi na prática que o dinheiro não vem do post, vem do nome que os posts constroem.</p>
+      <ul class="timeline">
+        <li><b>15 anos</b> · Tentava ganhar dinheiro com a internet</li>
+        <li><b>2017</b> · Maquiadora profissional</li>
+        <li><b>2020</b> · Abri minha loja de biquínis</li>
+        <li><b>2023</b> · Entrei no CLT</li>
+        <li><b>2024</b> · Inaugurei minha agência de marketing e passei a trabalhar 100% com a internet</li>
+        <li><b>Hoje</b> · Ensino mulheres a profissionalizar o conteúdo e vender com o próprio nome</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 14. GARANTIA -->
+<section class="deep grid-bg">
+  <div class="wrap guarantee">
+    <div class="seal"><b>[7]</b><span>dias de garantia</span></div>
+    <div class="stack">
+      <h2 class="h2">Quer testar sem risco nenhum? <em>Sem problemas.</em></h2>
+      <p class="lead">Entre, assista às aulas e faça as primeiras tarefas. Se em até <span class="ph">[7]</span> dias você sentir que o Método VICIO não é para você, é só pedir o reembolso. Você recebe 100% do valor de volta, sem perguntas e sem burocracia.</p>
+      <div><a class="btn" href="#oferta">Quero entrar sem risco <span class="arrow">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. FAQ -->
+<section class="light">
+  <div class="wrap stack">
+    <div class="label" style="justify-content:center"><span class="num">?</span><span class="txt">Ficou com alguma dúvida?</span></div>
+    <h2 class="h2" style="text-align:center">Perguntas frequentes</h2>
+    <div class="faq">
+      <details><summary>Preciso ter muitos seguidores para vender?</summary><p>Não. O foco do método é transformar quem já te acompanha em cliente, e não correr atrás de números. Com UGC, por exemplo, dá para ganhar dinheiro criando conteúdo antes de ter muitos seguidores.</p></details>
+      <details><summary>Ainda não tenho produto. O curso serve para mim?</summary><p>Serve. Você escolhe o caminho de monetização que faz sentido agora (serviço, produto próprio, publi ou UGC) e aprende a criar a oferta a partir do que a sua audiência já pede.</p></details>
+      <details><summary>Vou aprender a vender sem parecer chata?</summary><p>Vai. Você aprende o roteiro do Reels que vende e a colocar a venda dentro de algo útil ou de uma história, para a oferta chegar de forma natural.</p></details>
+      <details><summary>Preciso aparecer nos vídeos?</summary><p>Não no começo. Você aprende formatos que funcionam sem mostrar o rosto, como B-roll e mapa mental, e vai ganhando confiança para aparecer no seu ritmo.</p></details>
+      <details><summary>O curso ensina Stories e carrossel?</summary><p>O foco do curso é 100% Reels. Stories e carrossel entram na aula bônus, que mostra como usar os dois junto com os seus Reels para levar a pessoa até a compra.</p></details>
+      <details><summary>O que é o Agente VICIO?</summary><p>É uma IA treinada no método, que funciona em qualquer ferramenta. Ela te ajuda a aplicar as etapas do VICIO no seu perfil.</p></details>
+      <details><summary>Quanto tempo por semana eu preciso?</summary><p>Você monta a rotina de acordo com o tempo que tem de verdade. O mínimo recomendado é 2 Reels por semana, com gravação em lote para caber na sua agenda.</p></details>
+      <details><summary>As aulas são longas?</summary><p>Não. São 44 aulas diretas ao ponto, de 5 a 8 minutos, e as aulas de formato são pílulas de 3 a 4 minutos. São cerca de 6 horas no total, e cada aula termina com uma tarefa.</p></details>
+      <details><summary>O curso ensina a editar vídeo?</summary><p>Não. O foco é estratégia e venda: o que postar, para quem, com qual objetivo e como transformar isso em clientes.</p></details>
+      <details><summary>Tenho um negócio. O método serve para mim?</summary><p>Serve. O VICIO foi pensado para dois perfis: quem quer viver de conteúdo e quem já tem um negócio e quer vender pelo próprio nome em vez de depender de indicação.</p></details>
+            <details><summary>Por quanto tempo terei acesso?</summary><p>Você tem 1 ano de acesso a todas as aulas, ferramentas e bônus, incluindo as atualizações desse período.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Você tem <span class="ph">[7]</span> dias de garantia. Se não for para você, pede o reembolso e recebe todo o valor de volta.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 16. ÚLTIMO AVISO -->
+<section class="dark grid-bg">
+  <div class="wrap stack center">
+    <div class="eyebrow">⚠ Último aviso</div>
+    <h2 class="h2">Daqui a 6 meses, <em>onde você vai estar?</em></h2>
+    <div class="scenarios" style="text-align:left;width:100%">
+      <div class="scenario a"><span class="tag">CENÁRIO A</span><h3>Tudo igual</h3><p>Você continua postando quando dá, comemorando views que não pagam conta e esperando o perfil crescer para começar a vender. Mais 6 meses trabalhando de graça para o algoritmo.</p></div>
+      <div class="scenario b"><span class="tag">CENÁRIO B</span><h3>O seu nome vendendo</h3><p>Seu conteúdo virou trabalho: rotina, oferta clara e Reels feitos para vender. As mensagens perguntando "como faço para comprar com você?" chegam toda semana, sem precisar viralizar.</p></div>
+    </div>
+    <p class="lead">A diferença entre esses dois cenários é a decisão que você toma hoje. As condições desta página valem por tempo limitado.</p>
+    <div><a class="btn" href="#oferta">Entrar agora para o Método VICIO <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand">MÉTODO <span>VICIO</span></div>
+    <div class="foot-links"><a href="#">Termos de uso</a><a href="#">Política de garantia</a><a href="#">Política de privacidade</a></div>
+    <p class="disclaimer">Os resultados variam de pessoa para pessoa e dependem da aplicação do método. Nenhuma informação desta página é garantia de ganhos ou de crescimento específicos.</p>
+    <p>© Mariana Magno · <span class="ph">[CNPJ]</span> · Todos os direitos reservados</p>
+  </div>
+</footer>
+
+</body></html>

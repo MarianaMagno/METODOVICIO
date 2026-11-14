@@ -100,7 +100,18 @@
   .vsl-sub b{color:var(--creme);font-weight:600;}
   .vsl-hint{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--rosa);text-align:center;}
   .vsl{width:100%;max-width:380px;aspect-ratio:9/16;border-radius:24px;overflow:hidden;border:1px solid var(--linha-escura);box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 0 8px rgba(232,180,200,.08);background:var(--vinho-escuro);}
-  .vsl iframe,.vsl video{width:100%;height:100%;border:0;display:block;}
+  .vsl iframe,.vsl video{width:100%;height:100%;border:0;display:block;object-fit:cover;background:var(--vinho-escuro);}
+  .vsl{position:relative;}
+  .vsl video{cursor:pointer;}
+  .vsl-unmute{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 26px;border:0;border-radius:18px;background:rgba(124,58,237,.92);box-shadow:0 18px 40px rgba(0,0,0,.4);color:#fff;font-family:var(--body);cursor:pointer;animation:vslPulse 1.6s ease-in-out infinite;}
+  .vsl-unmute-ico{font-size:34px;line-height:1;}
+  .vsl-unmute b{font-size:16px;font-weight:700;}
+  .vsl-unmute span:last-child{font-size:13px;opacity:.9;}
+  .vsl-unmute[hidden],.vsl-paused[hidden]{display:none!important;}
+  @keyframes vslPulse{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.05);}}
+  .vsl-paused{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border:0;background:rgba(34,8,26,.35);cursor:pointer;}
+  .vsl-bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.18);}
+  .vsl-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--azul),var(--roxo));transition:width .3s linear;}
   .vsl-placeholder{width:100%;height:100%;background-size:cover;background-position:50% 35%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
   .play{width:clamp(64px,9vw,92px);aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,var(--azul),var(--roxo));box-shadow:0 0 0 10px rgba(255,255,255,.12);position:relative;}
   .play::after{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent var(--branco);}
@@ -147,6 +158,16 @@
   .cycle-head.blank{background:none;}
   .cycle-row{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--rosa);display:flex;align-items:center;padding-inline:4px;}
   .cycle-cell{background:rgba(255,255,255,.06);border:1px solid var(--linha-escura);border-radius:12px;padding:16px;font-size:14px;color:var(--texto-claro);}
+  .cycle-cards{display:none;list-style:none;margin:40px 0 0;padding:0;}
+  .cc{background:rgba(255,255,255,.06);border:1px solid var(--linha-escura);border-radius:16px;overflow:hidden;}
+  .cc-head{display:flex;align-items:center;gap:12px;padding:14px 18px;background:linear-gradient(135deg,var(--azul),var(--roxo));font-family:var(--display);text-transform:uppercase;font-size:22px;line-height:1;color:var(--creme);}
+  .cc-head span{font-family:var(--body,inherit);font-size:12px;font-weight:600;letter-spacing:1px;background:rgba(255,255,255,.2);border-radius:999px;padding:4px 9px;}
+  .cc dl{margin:0;padding:6px 18px 16px;}
+  .cc dt{margin-top:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--rosa);}
+  .cc dd{margin:4px 0 0;font-size:15px;line-height:1.45;color:var(--texto-claro);}
+  .cc-arrow{display:block;text-align:center;color:var(--rosa);font-size:22px;line-height:1;padding:8px 0;}
+  .cc-loop{display:block;text-align:center;margin-top:14px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--rosa);}
+  @media (max-width:760px){.cycle{display:none;}.cycle-cards{display:block;}}
   .quote-line{margin-top:44px;font-size:clamp(17px,1.8vw,20px);color:var(--texto-claro);max-width:60ch;margin-inline:auto;text-align:center;font-style:italic;}
 
   /* RESULTADOS */
@@ -273,6 +294,8 @@
   .bonuses.two{grid-template-columns:repeat(2,1fr);max-width:820px;margin-inline:auto;width:100%;}
   @media (max-width:960px){.steps,.bonuses{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:560px){.steps,.bonuses{grid-template-columns:1fr;}}
+  @media (max-width:960px){.bonuses.five,.bonuses.two{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.bonuses.five,.bonuses.two{grid-template-columns:1fr;}.bonuses .bonus h3{overflow-wrap:break-word;}}
 
   /* OFERTA */
   .offer{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch;}
@@ -360,6 +383,21 @@
     .callouts{grid-template-columns:1fr;}
     .btn{padding:18px 22px;font-size:14px;}
   }
+  /* Otimizações mobile */
+  @media (max-width:820px){
+    .stats{grid-template-columns:repeat(3,1fr);gap:8px;}
+    .stat{padding:18px 10px;text-align:center;border-radius:14px;}
+    .stat b{font-size:28px;}
+    .stat span{font-size:12px;line-height:1.3;margin-top:6px;}
+    .foot-links a{display:inline-block;padding:12px 8px;}
+  }
+  .sticky-cta{display:none;}
+  @media (max-width:760px){
+    .sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(34,8,26,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--linha-escura);transform:translateY(110%);transition:transform .25s ease;}
+    .sticky-cta.show{transform:none;}
+    .sticky-cta .btn{width:100%;padding:15px 18px;font-size:14px;}
+    footer{padding-bottom:110px;}
+  }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
 :root{--img1:url('images/img-02.jpg');--img2:url('images/img-03.jpg');--img3:url('images/img-04.jpg');}
 </style>
@@ -374,12 +412,12 @@
       <h1 class="hero-lead"><span>O problema não são os seus seguidores, é a falta de um <em>método que transforme o seu nome em algo que as pessoas compram.</em></span></h1>
     </div>
     <div class="hv-video">
-      <!-- VSL vertical (9:16): substitua o bloco .vsl-placeholder pelo embed do player (Vturb, Panda, YouTube Shorts, Vimeo…) -->
+      <!-- VSL vertical (9:16): vídeo próprio: video/vsl-hevc.mp4 (1080p) com reserva video/vsl-h264.mp4 (720p). Começa mudo (regra dos navegadores) e o botão ativa o som do início. -->
       <div class="vsl" id="vsl">
-        <div class="vsl-placeholder" style="background-image:linear-gradient(rgba(34,8,26,.45),rgba(34,8,26,.7)),url('images/img-02.jpg')">
-          <span class="play" aria-hidden="true"></span>
-          <span class="vsl-label">Espaço da VSL · vídeo vertical 9:16</span>
-        </div>
+        <video id="vsl-video" poster="images/vsl-poster.jpg" autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" aria-label="Vídeo: Método VICIO"><source src="video/vsl-hevc.mp4" type='video/mp4; codecs="hvc1"'><source src="video/vsl-h264.mp4" type="video/mp4"></video>
+        <button type="button" class="vsl-unmute" id="vsl-unmute"><span class="vsl-unmute-ico" aria-hidden="true">🔊</span><b>Seu vídeo já começou</b><span>Toque para ouvir</span></button>
+        <button type="button" class="vsl-paused" id="vsl-paused" hidden aria-label="Continuar vídeo"><span class="play" aria-hidden="true"></span></button>
+        <div class="vsl-bar" aria-hidden="true"><i id="vsl-bar"></i></div>
       </div>
     </div>
     <div class="hv-cta">
@@ -433,12 +471,12 @@
           <div class="callout"><b>R$ 0</b><span>era o que eu ganhava com todo esse conteúdo</span></div>
         </div>
       </div>
-      <div class="frame"><img src="images/img-05.jpg" alt="Mariana adolescente gravando vídeo de maquiagem usando colete na coluna"></div>
+      <div class="frame"><img loading="lazy" decoding="async" src="images/img-05.jpg" alt="Mariana adolescente gravando vídeo de maquiagem usando colete na coluna"></div>
     </div>
     <div class="collage">
-      <img src="images/img-06.jpg" alt="Story de 2019 de Mariana treinando maquiagem">
-      <img src="images/img-07.jpg" alt="Perfil antigo de maquiagem com 176 seguidores">
-      <img src="images/img-08.jpg" alt="Mariana em vídeo de challenge de maquiagem">
+      <img loading="lazy" decoding="async" src="images/img-06.jpg" alt="Story de 2019 de Mariana treinando maquiagem">
+      <img loading="lazy" decoding="async" src="images/img-07.jpg" alt="Perfil antigo de maquiagem com 176 seguidores">
+      <img loading="lazy" decoding="async" src="images/img-08.jpg" alt="Mariana em vídeo de challenge de maquiagem">
     </div>
     <div class="story-turn">
       <h3 class="story-sub">O fundo do poço</h3>
@@ -474,6 +512,16 @@
         <div class="cycle-cell">Continua porque funciona</div>
       </div>
     </div>
+    <ol class="cycle-cards" aria-label="O Ciclo do Vício">
+      <li class="cc"><div class="cc-head"><span>1</span>Gatilho</div><dl><dt>Na audiência</dt><dd>O gancho que faz parar de rolar o feed</dd><dt>Em você</dt><dd>Um processo pronto para seguir</dd></dl></li>
+      <li class="cc-arrow" aria-hidden="true">↓</li>
+      <li class="cc"><div class="cc-head"><span>2</span>Rotina</div><dl><dt>Na audiência</dt><dd>Ver seus Reels sempre</dd><dt>Em você</dt><dd>Postar com constância</dd></dl></li>
+      <li class="cc-arrow" aria-hidden="true">↓</li>
+      <li class="cc"><div class="cc-head"><span>3</span>Recompensa</div><dl><dt>Na audiência</dt><dd>O valor que você entrega em cada vídeo</dd><dt>Em você</dt><dd>Ver o resultado virar venda</dd></dl></li>
+      <li class="cc-arrow" aria-hidden="true">↓</li>
+      <li class="cc"><div class="cc-head"><span>4</span>Repetição</div><dl><dt>Na audiência</dt><dd>Volta todo dia, até comprar</dd><dt>Em você</dt><dd>Continua porque funciona</dd></dl></li>
+      <li class="cc-loop" aria-hidden="true">↻ e o ciclo recomeça</li>
+    </ol>
     <p class="quote-line">"Quando você tem processo, a constância vem. Quando a constância vem, a audiência vicia. Quando a audiência vicia, ela compra."</p>
   </div>
 </section>
@@ -500,10 +548,10 @@
       <div class="mc-nav"><button type="button" class="fb-btn mc-btn" data-dir="-1" aria-label="Depoimento anterior">←</button><button type="button" class="fb-btn mc-btn" data-dir="1" aria-label="Próximo depoimento">→</button></div>
     </div>
     <div class="fb-track" id="fb-track" tabindex="0" aria-label="Depoimentos de alunas">
-      <figure class="fb"><img src="images/img-09.jpg" alt="Depoimento da aluna Lorena: mudou de casa, abriu novos negócios e começou a ganhar 300x mais"></figure>
-      <figure class="fb"><img src="images/img-10.jpg" alt="Depoimento da aluna Denise: fechou trabalho com o Mercado Livre através da mentoria"></figure>
-      <figure class="fb"><img src="images/img-11.jpg" alt="Depoimento da aluna Giovanna: fechou um contrato de 9 vídeos pagos"></figure>
-      <figure class="fb"><img src="images/img-12.jpg" alt="Depoimento da aluna Camila sobre a mentoria de Clips"></figure>
+      <figure class="fb"><img loading="lazy" decoding="async" src="images/img-09.jpg" alt="Depoimento da aluna Lorena: mudou de casa, abriu novos negócios e começou a ganhar 300x mais"></figure>
+      <figure class="fb"><img loading="lazy" decoding="async" src="images/img-10.jpg" alt="Depoimento da aluna Denise: fechou trabalho com o Mercado Livre através da mentoria"></figure>
+      <figure class="fb"><img loading="lazy" decoding="async" src="images/img-11.jpg" alt="Depoimento da aluna Giovanna: fechou um contrato de 9 vídeos pagos"></figure>
+      <figure class="fb"><img loading="lazy" decoding="async" src="images/img-12.jpg" alt="Depoimento da aluna Camila sobre a mentoria de Clips"></figure>
       <figure class="fb"><img src="images/img-13.jpg" alt="Camis fechou cliente uma semana depois da mentoria" loading="lazy"></figure>
       <figure class="fb"><img src="images/img-14.jpg" alt="Depoimento da aluna Ju: fechou mais de 30 clips com um único cliente" loading="lazy"></figure>
       <figure class="fb"><img src="images/img-15.jpg" alt="Depoimento da aluna Eli: fechou contrato em dólar depois de ajustar o portfólio" loading="lazy"></figure>
@@ -823,7 +871,7 @@
 <!-- 13. SOBRE -->
 <section class="light">
   <div class="wrap about">
-    <div class="about-photo"><img src="images/img-03.jpg" alt="Mariana Magno sentada em um sofá, em foto de retrato"></div>
+    <div class="about-photo"><img loading="lazy" decoding="async" src="images/img-03.jpg" alt="Mariana Magno sentada em um sofá, em foto de retrato"></div>
     <div class="about-text">
       <div class="label"><span class="num">M</span><span class="txt">Quem vai te ensinar</span></div>
       <h2 class="h2">Quem é <em>Mariana Magno?</em></h2>
@@ -888,6 +936,8 @@
   </div>
 </section>
 
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true"><a class="btn" href="#oferta" tabindex="-1">Quero entrar no Método VICIO <span class="arrow">→</span></a></div>
+
 <footer>
   <div class="wrap foot">
     <div class="brand">MÉTODO <span>VICIO</span></div>
@@ -896,5 +946,32 @@
     <p>© Mariana Magno · <span class="ph">[CNPJ]</span> · Todos os direitos reservados</p>
   </div>
 </footer>
+<script>
+(function(){
+  var v=document.getElementById('vsl-video'); if(!v) return;
+  var un=document.getElementById('vsl-unmute'), pa=document.getElementById('vsl-paused'), bar=document.getElementById('vsl-bar');
+  v.muted=true; var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  function unmute(){ v.currentTime=0; v.muted=false; v.play(); un.hidden=true; }
+  un.addEventListener('click',unmute);
+  v.addEventListener('click',function(){ if(v.muted){unmute();return;} v.pause(); });
+  pa.addEventListener('click',function(){ v.play(); });
+  v.addEventListener('pause',function(){ if(!v.muted && !v.ended) pa.hidden=false; });
+  v.addEventListener('play',function(){ pa.hidden=true; });
+  v.addEventListener('ended',function(){ if(v.muted){ v.currentTime=0; v.play(); } });
+  /* barra "inteligente": anda mais rápido no começo e devagar no fim */
+  v.addEventListener('timeupdate',function(){ if(!v.duration) return; var f=v.currentTime/v.duration; bar.style.width=(Math.pow(f,0.55)*100).toFixed(2)+'%'; });
+})();
+</script>
+<script>
+(function(){
+  var sc=document.getElementById('sticky-cta'), hero=document.querySelector('header.hero'), offer=document.getElementById('oferta');
+  if(sc&&hero&&offer&&'IntersectionObserver' in window){
+    var heroOut=false, offerIn=false;
+    function upd(){var on=heroOut&&!offerIn; sc.classList.toggle('show',on); sc.setAttribute('aria-hidden',on?'false':'true'); sc.querySelector('a').tabIndex=on?0:-1;}
+    new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;upd();}).observe(hero);
+    new IntersectionObserver(function(e){offerIn=e[0].isIntersecting;upd();}).observe(offer);
+  }
+})();
+</script>
 
 </body></html>
